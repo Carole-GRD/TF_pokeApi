@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { tick } from '@angular/core/testing';
 import { ObservableService } from '../shared/services/observable/observable.service';
 
 @Component({
@@ -14,6 +15,14 @@ export class SenderComponent {
 
   emettreMessage() {
     this._observableService.sendMessage(this.valueInput);
+  }
+
+  emettreErreur() {
+    this._observableService.sendError(this.valueInput);
+  }
+
+  emettreComplete() {
+    this._observableService.sendComplete();
   }
 
 }
