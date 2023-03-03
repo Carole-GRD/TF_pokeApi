@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ObservableService } from '../shared/services/observable/observable.service';
-import { tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-receiver',
@@ -18,10 +17,7 @@ export class ReceiverComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     
-    this.observer = this._observableService.monBehaviorSubject.pipe(
-      tap(_ => console.log('pipe -> tap')), 
-      map(x => x + ' ...et mon pipe')
-    ).subscribe({
+    this.observer = this._observableService.monBehaviorSubject.subscribe({
       
       next : (message) => {
         this.messageReceive = message;
@@ -42,7 +38,7 @@ export class ReceiverComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
 
-    this.observer.unsubscribe()
+    this.observer.unsubscribe();
 
   };
 

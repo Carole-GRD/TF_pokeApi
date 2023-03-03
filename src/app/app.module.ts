@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { SenderComponent } from './sender/sender.component';
 import { ReceiverComponent } from './receiver/receiver.component';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
+import { ReadPokemonComponent } from './read-pokemon/read-pokemon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SenderComponent,
-    ReceiverComponent
+    ReceiverComponent,
+    SearchComponent,
+    ReadPokemonComponent
   ],
   imports: [
     BrowserModule,
