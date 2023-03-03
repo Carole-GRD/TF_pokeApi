@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ObservableService } from '../shared/services/observable/observable.service';
 
 @Component({
@@ -6,18 +6,21 @@ import { ObservableService } from '../shared/services/observable/observable.serv
   templateUrl: './receiver.component.html',
   styleUrls: ['./receiver.component.scss']
 })
-export class ReceiverComponent implements OnInit {
+export class ReceiverComponent implements OnInit, OnDestroy {
 
   messageReceive: string = '';
+
+  observer! : any;
 
   constructor(private _observableService : ObservableService) {}
 
   ngOnInit(): void {
     
-    this._observableService.monBehaviorSubject.subscribe({
+    this.observer = this._observableService.monBehaviorSubject.subscribe({
       
       next : (message) => {
         this.messageReceive = message;
+        console.log(message);
       },
 
       error : (message) => {
@@ -31,5 +34,11 @@ export class ReceiverComponent implements OnInit {
     });
 
   }
+
+  ngOnDestroy(): void {
+
+    this.observer.unsubscribe()
+    
+  };
 
 }

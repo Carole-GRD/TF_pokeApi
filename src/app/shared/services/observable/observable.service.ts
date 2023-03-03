@@ -26,6 +26,8 @@ export class ObservableService {
     console.log('J\'emmet message');
   
     this.monBehaviorSubject.next(message);
+
+    this.monBehaviorSubject.complete();
   
   }
 
