@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ObservableService } from '../shared/services/observable/observable.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class ReceiverComponent implements OnInit, OnDestroy {
 
   messageReceive: string = '';
 
-  observer! : any;
+  observer! : Subscription;
 
   constructor(private _observableService : ObservableService) {}
 
@@ -38,7 +39,7 @@ export class ReceiverComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
 
     this.observer.unsubscribe()
-    
+
   };
 
 }
