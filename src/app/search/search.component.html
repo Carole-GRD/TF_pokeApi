@@ -1,1 +1,17 @@
-<p>search works!</p>
+
+
+<button (click)="searchPikachu()">Search Pikachu</button>
+
+<br>
+
+<p>{{monMessage}}</p>
+
+<div *ngIf="monPokemon">
+
+    <h4>{{monPokemon.name}}</h4>
+    <p>Taille : {{monPokemon.height}} cm</p>
+    <p>Poids : {{monPokemon.height}} kg</p>
+    <p>Numero : {{monPokemon.id}}</p>
+    <p>Experience : {{monPokemon.base_experience}}</p>
+    
+</div>

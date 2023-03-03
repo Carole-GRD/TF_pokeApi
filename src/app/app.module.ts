@@ -7,20 +7,20 @@ import { SenderComponent } from './sender/sender.component';
 import { ReceiverComponent } from './receiver/receiver.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
-import { ReadPokemonComponent } from './read-pokemon/read-pokemon.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     SenderComponent,
     ReceiverComponent,
-    SearchComponent,
-    ReadPokemonComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
